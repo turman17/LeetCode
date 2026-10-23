@@ -5,15 +5,12 @@ import "fmt"
 func moveZeroes(nums []int) {
 	j := 0
 	for i := range nums {
-		j = i
-		if nums[i] == 0 {
-			for j < len(nums) && nums[j] == 0 {
-				j++
-			}
-			if j < len(nums) && nums[j] != 0 {
-				nums[i] = nums[j]
-				nums[j] = 0
-			}
+		if nums[j] == 0 && nums[i] != 0 {
+			nums[j] = nums[i]
+			nums[i] = 0
+			j++
+		} else if nums[j] != 0 {
+			j++
 		}
 	}
 }
